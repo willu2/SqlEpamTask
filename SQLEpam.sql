@@ -1,3 +1,5 @@
+create database students
+
 CREATE TABLE dbo.Student
 (
 Dw_Student_Id INT PRIMARY KEY,
@@ -6,10 +8,18 @@ Surname VARCHAR(255),
 Birth DATE
 );
 
-CREATE TABLE dbo.Adress
+CREATE TABLE dbo.HomeAdress
 (
 Dw_Adress_Id INT PRIMARY KEY,
 StreetName     VARCHAR(255),
+BuildingNumber INT,
+Dw_Student_Id  INT FOREIGN KEY REFERENCES Student(Dw_Student_Id)
+);
+
+CREATE TABLE dbo.UniversityAdress
+(
+Dw_Adress_Id INT PRIMARY KEY,
+UniversityStName     VARCHAR(255),
 BuildingNumber INT,
 Dw_Student_Id  INT FOREIGN KEY REFERENCES Student(Dw_Student_Id)
 );
@@ -23,21 +33,37 @@ INSERT INTO Student VALUES (6, 'Name6','Surname6','1975-04-12');
 INSERT INTO Student VALUES (7, 'Name7','Surname7','1985-03-28');
 GO
 
-INSERT INTO Adress VALUES(100,'Adress1',315 ,1);
-INSERT INTO Adress VALUES(101,'Adress2',316 ,1);
-INSERT INTO Adress VALUES(102,'Adress3',317 ,2);
-INSERT INTO Adress VALUES(103,'Adress4',318 ,3);
-INSERT INTO Adress VALUES(104,'Adress5',319 ,4);
-INSERT INTO Adress VALUES(105,'Adress6',310 ,5);
-INSERT INTO Adress VALUES(106,'Adress7',325 ,6);
-INSERT INTO Adress VALUES(107,'Adress8',326 ,7);
-INSERT INTO Adress VALUES(108,'Adress9',327 ,7);
-INSERT INTO Adress VALUES(109,'Adress10',330 ,3);
-INSERT INTO Adress VALUES(110,'Adress11',331 ,5);
-INSERT INTO Adress VALUES(111,'Adress12',332 ,7);
-INSERT INTO Adress VALUES(112,'Adress13',340 ,4);
+INSERT INTO HomeAdress VALUES(100,'HAdress1',315 ,1);
+INSERT INTO HomeAdress VALUES(101,'HAdress2',316 ,1);
+INSERT INTO HomeAdress VALUES(102,'HAdress3',317 ,2);
+INSERT INTO HomeAdress VALUES(103,'HAdress4',318 ,3);
+INSERT INTO HomeAdress VALUES(104,'HAdress5',319 ,4);
+INSERT INTO HomeAdress VALUES(105,'HAdress6',310 ,5);
+INSERT INTO HomeAdress VALUES(106,'HAdress7',325 ,6);
+INSERT INTO HomeAdress VALUES(107,'HAdress8',326 ,7);
+INSERT INTO HomeAdress VALUES(108,'HAdress9',327 ,7);
+INSERT INTO HomeAdress VALUES(109,'HAdress10',330 ,3);
+INSERT INTO HomeAdress VALUES(110,'HAdress11',331 ,5);
+INSERT INTO HomeAdress VALUES(111,'HAdress12',332 ,7);
+INSERT INTO HomeAdress VALUES(112,'HAdress13',340 ,4);
 
 GO
 
+INSERT INTO UniversityAdress VALUES(100,'UniAdress1',515 ,1);
+INSERT INTO UniversityAdress VALUES(101,'UniAdress2',516 ,1);
+INSERT INTO UniversityAdress VALUES(102,'UniAdress3',517 ,2);
+INSERT INTO UniversityAdress VALUES(103,'UniAdress4',518 ,3);
+INSERT INTO UniversityAdress VALUES(104,'UniAdress5',519 ,4);
+INSERT INTO UniversityAdress VALUES(105,'UniAdress6',510 ,5);
+INSERT INTO UniversityAdress VALUES(106,'UniAdress7',525 ,6);
+INSERT INTO UniversityAdress VALUES(107,'UniAdress8',526 ,7);
+INSERT INTO UniversityAdress VALUES(108,'UniAdress9',527 ,2);
+INSERT INTO UniversityAdress VALUES(109,'UniAdress10',530 ,3);
+INSERT INTO UniversityAdress VALUES(110,'UniAdress11',531 ,5);
+
+GO
+
+
 SELECT * FROM dbo.Student;
-SELECT * FROM dbo.Adress;
+SELECT * FROM dbo.HomeAdress;
+SELECT * FROM dbo.UniversityAdress;
